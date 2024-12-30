@@ -7,24 +7,7 @@
 #include <iostream>
 #include <thread>
 
-static auto cr3_loop() -> void {
 
-	auto LatestGworld = read<uintptr_t>(Base + UWORLD);
-	//SetConsoleTitle(skCrypt(L"C:/Windows/System32/RuntimeBroker.exe"));
-	while (true) {
-		cache::uworld = read<uintptr_t>(Base + UWORLD);
-		//printf("GWORLD ---> 0x%llx \n", arrays->UWorld);
-		if (LatestGworld != cache::uworld) {
-			auto cr3 = Driver::CR3();
-			//printf("DTB ---> 0x%llx\n", cr3);
-
-			LatestGworld = read<uintptr_t>(Base + UWORLD);
-
-		}
-
-		std::this_thread::sleep_for(std::chrono::microseconds(100));
-	}
-}
 #include <iostream>
 #include <string>
 
@@ -92,7 +75,7 @@ void main()
 			exit(0);
 		}
 		Driver::CR3();
-		std::thread([&]() { cr3_loop(); }).detach();
+		//std::thread([&]() { cr3_loop(); }).detach();
 		//if (!mem::fetch_cr3())
 		//{
 
