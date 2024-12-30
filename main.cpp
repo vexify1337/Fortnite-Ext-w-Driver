@@ -11,7 +11,7 @@
 #include <iostream>
 #include <string>
 
-//REMOVED THE CR3 LOOP TO FIX THE CRASH ISSUE!
+// credits to some random github repo for this paste and UC for the rest LOL
 void main()
 {
 	const std::string validLicenseKey = ".gg/aimbot";
